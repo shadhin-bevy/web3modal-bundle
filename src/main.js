@@ -44,4 +44,8 @@ const modal = createWeb3Modal({
 	projectId,
 	enableAnalytics: true, // Optional - defaults to your Cloud configuration
 	enableOnramp: true, // Optional - false as default
+	themeVariables: {
+		'--w3m-color-mix': '#fc72ff',
+		'--w3m-color-mix-strength': 40,
+	},
 });
