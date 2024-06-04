@@ -59,6 +59,14 @@ if (isMobile) {
 	btn.addEventListener('click', () => {
 		modal.open();
 		console.log('CLICKED');
+
+		const checkConnection = setInterval(() => {
+			const isConnected = modal.getIsConnected();
+			if (isConnected) {
+				clearInterval(checkConnection);
+				window.location.reload();
+			}
+		}, 1000);
 	});
 
 	disconnectBtn.addEventListener('click', () => {
