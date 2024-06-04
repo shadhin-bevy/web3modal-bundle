@@ -14,9 +14,9 @@ const mainnet = {
 
 // 3. Create your application's metadata object
 const metadata = {
-	name: 'My Website',
-	description: 'My Website description',
-	url: 'https://mywebsite.com', // url must match your domain & subdomain
+	name: 'Kidsuper Labs',
+	description: '',
+	url: 'https://labs.kidsuper.com/', // url must match your domain & subdomain
 	icons: ['https://avatars.mywebsite.com/'],
 };
 
@@ -48,3 +48,21 @@ const modal = createWeb3Modal({
 		'--w3m-accent': '#fc74fe',
 	},
 });
+
+const btn = document.querySelector('#connectedToWalletBtn');
+const disconnectBtn = document.querySelector(
+	'.header__disconnect-btn-container'
+);
+const isMobile = navigator.userAgentData.mobile;
+
+if (isMobile) {
+	btn.addEventListener('click', () => {
+		modal.open();
+		console.log('CLICKED');
+	});
+
+	disconnectBtn.addEventListener('click', () => {
+		modal.disconnect();
+		console.log('Disconnected');
+	});
+}
