@@ -64,6 +64,7 @@ if (isMobile) {
 			const isConnected = modal.getIsConnected();
 			if (isConnected) {
 				clearInterval(checkConnection);
+				localStorage.setItem('wallet-address', modal.getAddress());
 				window.location.reload();
 			}
 		}, 1000);
