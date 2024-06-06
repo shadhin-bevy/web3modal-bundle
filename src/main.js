@@ -57,9 +57,7 @@ const btn = document.querySelector('#connectedToWalletBtn');
 const disconnectBtn = document.querySelector(
 	'.header__disconnect-btn-container'
 );
-// const isMobile = navigator.userAgentData.mobile;
 const md = new MobileDetect(navigator.userAgent);
-console.log(md.mobile(), md.is('iPhone'));
 
 if (md.mobile() || md.is('iPhone')) {
 	btn.addEventListener('click', () => {
