@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@web3modal/ethers": "^4.2.3",
-    "ethers": "^6.12.1"
+    "ethers": "^6.12.1",
+    "mobile-detect": "^1.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",

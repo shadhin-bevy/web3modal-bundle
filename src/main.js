@@ -1,4 +1,5 @@
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers';
+import MobileDetect from 'mobile-detect';
 
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = '90b585be01a71e5c94a44efe5c097c64';
@@ -48,16 +49,19 @@ const modal = createWeb3Modal({
 	themeVariables: {
 		'--w3m-accent': '#fc74fe',
 	},
-	termsConditionsUrl: 'https://uniswap.org/privacy-policy',
+	termsConditionsUrl: 'https://uniswap.org/terms-of-service',
+	privacyPolicyUrl: 'https://uniswap.org/privacy-policy',
 });
 
 const btn = document.querySelector('#connectedToWalletBtn');
 const disconnectBtn = document.querySelector(
 	'.header__disconnect-btn-container'
 );
-const isMobile = navigator.userAgentData.mobile;
+// const isMobile = navigator.userAgentData.mobile;
+const md = new MobileDetect(navigator.userAgent);
+console.log(md.mobile(), md.is('iPhone'));
 
-if (isMobile) {
+if (md.mobile() || md.is('iPhone')) {
 	btn.addEventListener('click', () => {
 		modal.open();
 		console.log('CLICKED');
