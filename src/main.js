@@ -36,10 +36,13 @@ const ethersConfig = defaultConfig({
 
 // 5. Create a Web3Modal instance
 const modal = createWeb3Modal({
-	// allWallets: 'HIDE',
+	allWallets: 'HIDE',
 	featuredWalletIds: [
 		'c03dfee351b6fcc421b4494ea33b9d4b92a984f87aa76d1663bb28705e95034a',
 		// '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0',
+	],
+	includeWalletIds: [
+		'c03dfee351b6fcc421b4494ea33b9d4b92a984f87aa76d1663bb28705e95034a',
 	],
 	ethersConfig,
 	chains: [mainnet],
