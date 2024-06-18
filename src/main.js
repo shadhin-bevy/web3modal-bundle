@@ -29,14 +29,14 @@ const ethersConfig = defaultConfig({
 	/*Optional*/
 	// enableEIP6963: true, // true by default
 	// enableInjected: true, // true by default
-	// enableCoinbase: true, // true by default
+	enableCoinbase: false, // true by default
 	// rpcUrl: '...', // used for the Coinbase SDK
 	// defaultChainId: 1, // used for the Coinbase SDK
 });
 
 // 5. Create a Web3Modal instance
 const modal = createWeb3Modal({
-	allWallets: 'HIDE',
+	allWallets: 'ONLY_MOBILE',
 	featuredWalletIds: [
 		'c03dfee351b6fcc421b4494ea33b9d4b92a984f87aa76d1663bb28705e95034a',
 		// '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0',
@@ -56,6 +56,7 @@ const modal = createWeb3Modal({
 	privacyPolicyUrl: 'https://uniswap.org/privacy-policy',
 });
 
+
 const btn = document.querySelector('#connectedToWalletBtn');
 const disconnectBtn = document.querySelector(
 	'.header__disconnect-btn-container'
@@ -64,8 +65,7 @@ const md = new MobileDetect(navigator.userAgent);
 
 if (md.mobile() || md.is('iPhone')) {
 	btn.addEventListener('click', () => {
-		modal.open();
-		console.log('CLICKED');
+		modal.open({ view: 'AllWallets' })
 
 		const checkConnection = setInterval(() => {
 			const isConnected = modal.getIsConnected();
