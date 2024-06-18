@@ -65,7 +65,7 @@ const md = new MobileDetect(navigator.userAgent);
 
 if (md.mobile() || md.is('iPhone')) {
 	btn.addEventListener('click', () => {
-		modal.open();
+		modal.open({ view: 'AllWallets' })
 
 		const checkConnection = setInterval(() => {
 			const isConnected = modal.getIsConnected();
